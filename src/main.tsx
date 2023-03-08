@@ -4,12 +4,18 @@ import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
 import App from './App';
+import { UserProvider } from './providers/UserContext';
+import { ShopProvider } from './providers/ShopContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider theme={mainTheme}>
-        <App />
+        <UserProvider>
+          <ShopProvider>
+            <App />
+          </ShopProvider>
+        </UserProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
